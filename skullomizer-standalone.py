@@ -146,7 +146,7 @@ for skull in range (0,5):
 	# Print current skulls
 	#textline = linecache.getline("skulls.txt", current_skulls[skull])
 	textline = skulltxt.split('\n')[current_skulls[skull]]
-	print(str(skull + 1) + ". "+textline)
+	print("[ ]" + str(skull + 1) + ". "+textline)
 
 while 1:
 	# Get input for which completed skull
@@ -187,4 +187,7 @@ while 1:
 	# Print current skulls
 	for skull in range (0,5):
 		textline = skulltxt.split('\n')[current_skulls[skull]]
-		print(str(skull+1) + ". "+textline)
+		checkbox = " "
+		if number_changes[skull] == 1:
+			checkbox = "X"
+		print("[" + checkbox + "]" +  str(skull+1) + ". "+textline)
