@@ -6,7 +6,7 @@ You can run the skullomizer by typing
 
 You will be prompted for a seed, which can be anything. Agree on a seed with your friends to get the same skull sequence.
 
-Then, you will be asked if you would like bonus points, and if so, how many.
+Then, you will be asked if you would like bonus points, and if so, how many, as well as if you would like to use flash mode.
 
 Whenever you finish getting a skull, type in the skull number into the prompt and a new skull will be generated.
 ## How it's Played
@@ -26,7 +26,12 @@ Two players race to get a certain amount of points. 5 point races are short, 10 
 
 ### Elimination Mode
 
-This can be played as a countdown or a race. However, when your opponent gets a skull, you also must clear it, however without geting points. This mode does not use bonus points
+This can be played as a countdown or a race. However, when your opponent gets a skull, you also must clear it, however without geting points. This mode does not use bonus points.
+
+### Flash Mode
+
+Any time you get a skulltula, all 5 of your current skulls are changed.
+
 
 
 ## Thanks
