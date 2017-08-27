@@ -134,7 +134,7 @@ if bonus == "y":
 
 for skull in range (0,5):
 	# Choose 5 random numbers between 0 and 99
-	skull_no = randint(0, 99)
+	skull_no = gen_skull()
 
 	# Set them as used
 	used_skulls[skull_no] = 1
