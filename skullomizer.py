@@ -1,3 +1,5 @@
+# Finappie's skullomizer code
+
 from random import randint
 import random
 import linecache
@@ -5,6 +7,7 @@ import linecache
 used_skulls = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 current_skulls = [0,0,0,0,0]
 number_changes = [0,0,0,0,0]
+counted_skulls = [0,0,0,0,0]
 amt_skulls = 0
 bonus_amt = 0
 
@@ -26,6 +29,8 @@ bonus = raw_input('Bonus points for all 5 finished? (y/n):')
 if bonus == "y":
 	bonus_amt = int(raw_input("How many points for a bonus?:"))
 
+raw_input('Press enter when ready.')
+
 for skull in range (0,5):
 	# Choose 5 random numbers between 0 and 99
 	skull_no = gen_skull()
@@ -38,16 +43,22 @@ for skull in range (0,5):
 for skull in range (0,5):
 
 	# Print current skulls
-	#textline = linecache.getline("skulls.txt", current_skulls[skull])
 	textline = linecache.getline("skulls.txt", current_skulls[skull] + 1)
-	print("[ ]"+str(skull + 1) + ". "+textline)
+	checkbox = ""
+	if bonus_amt > 0:
+		checkbox = "[ ]"
+		if number_changes[skull] == 1:
+			checkbox = "[X]"
+	print(checkbox + "[" + str(counted_skulls[skull]) + " Skulls]" +  str(skull+1) + ". "+textline)
 
 while 1:
 	# Get input for which completed skull
 	number = raw_input('Skull no.:')
 	number_int = int(number) - 1
+
 	# Increment points
 	amt_skulls += 1
+	counted_skulls[number_int] += 1
 
 	# Check for bonuses
 	number_changes[number_int] = 1
@@ -81,9 +92,9 @@ while 1:
 	# Print current skulls
 	for skull in range (0,5):
 		textline = linecache.getline("skulls.txt", current_skulls[skull] + 1)
-		checkbox = " "
-		if number_changes[skull] == 1:
-			checkbox = "X"
-		print("[" + checkbox + "]" +  str(skull+1) + ". "+textline)
-
-
+		checkbox = ""
+		if bonus_amt > 0:
+			checkbox = "[ ]"
+			if number_changes[skull] == 1:
+				checkbox = "[X]"
+		print(checkbox + "[" + str(counted_skulls[skull]) + " Skulls]" +  str(skull+1) + ". "+textline)
