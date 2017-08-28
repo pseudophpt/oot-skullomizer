@@ -18,6 +18,14 @@ var starting_time = 0;
 var ending_time =  0;
 var timer;
 
+function init_page () {
+	gen_seed();
+}
+
+function gen_seed () {
+	document.getElementById("seed").value = Math.floor(Math.random() * 1000000);
+}
+
 function get_skull_number () {
 	var skull_no = 100;
 	var random = gen_random (0, 100);
