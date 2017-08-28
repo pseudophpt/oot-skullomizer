@@ -56,7 +56,13 @@ function update_values() {
 	document.getElementById("num_skulls_3").innerHTML = String(amount_obtained[2]); 
 	document.getElementById("num_skulls_4").innerHTML = String(amount_obtained[3]); 
 	document.getElementById("num_skulls_5").innerHTML = String(amount_obtained[4]); 
-
+	
+	document.getElementById("image_1").innerHTML = '<img src="img/'+String(skull_numbers[0])+'.jpg" style="width:100%">';
+	document.getElementById("image_2").innerHTML = '<img src="img/'+String(skull_numbers[1])+'.jpg" style="width:100%">';
+	document.getElementById("image_3").innerHTML = '<img src="img/'+String(skull_numbers[2])+'.jpg" style="width:100%">';
+	document.getElementById("image_4").innerHTML = '<img src="img/'+String(skull_numbers[3])+'.jpg" style="width:100%">';
+	document.getElementById("image_5").innerHTML = '<img src="img/'+String(skull_numbers[4])+'.jpg" style="width:100%">';
+	
 	document.getElementById("total_skulls_amt").innerHTML = String(total_skulls); 
 	document.getElementById("total_points_amt").innerHTML = String(total_points); 
 
