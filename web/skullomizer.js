@@ -185,6 +185,7 @@ function hide_all_checkmarks () {
 
 function start_timer () {
 	starting_time = new Date().getTime();
+	window.clearInterval(timer);
 	if (countdown_enabled) {
 		timer = window.setInterval(update_countdown, 250);
 		ending_time = starting_time + (countdown * 60000);
