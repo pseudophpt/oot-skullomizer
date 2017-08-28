@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="skulls.js"></script>
+<script src="skullomizer.js"></script>
+</head>
+<body>
 
+<div class="container-fluid">
+	<div class="row">
+		<div class="text-center" style="background-color:salmon;padding:15px 0px 20px 0px;">
+			<h1><strong>Ocarina of Time Skullomizer<strong></h1>
+			<p>Written with love by finappie.</p>
+		</div>
+	</div>
+	<div class="row">	
+		<div id="left-side" class="col-sm-4 text-center">
+			<div class="row" style="background-color:#566573;">
+				<h2><strong>Options<strong></h2>
+				<form class="form-inline" role="form">
+					<div class="form-group">
+						<div class="input-group col-sm-8">
+							<input type="number" class="form-control" id="seed" placeholder="Seed">
+						</div>
+						<div class="input-group col-sm-8">
+							<div class="input-group-addon"><input type="checkbox" id="bonus_enabled"></div>
+							<input type="number" class="form-control" id="bonus" placeholder="Bonus">
+						</div>
+						<div class="input-group col-sm-8">
+							<input type="number" class="form-control" id="skulls" placeholder="Skull Limit (100 for countdown)">
+						</div>
+					</div>
+				</form>
+				<form class="form-group">
+					<div class="btn-group">
+						<label class="btn btn-info">
+							<input type="checkbox" id="lockout" autocomplete="off"> Lockout
+						</label>
+						<label class="btn btn-info">
+							<input type="checkbox" id="swap" autocomplete="off"> Swap
+						</label>
+					</div>
+				</form>
+				<form class="form-group">
+						<label class="btn btn-info">
+							<button id="start" type="button" autocomplete="off" onclick="start_race();">Start</button>
+						</label>
+				</form>
+			</div>	
+			<div class="row"  style="background-color:#677684; padding: 0px 0px 20px 0px">
+				<h2><strong>Timer<strong></h2>
+				<h1 id="timer">0h0m0s</h1>
+				<form class="form-inline">
+					<div class="input-group col-sm-6">
+						<div class="input-group-addon"><input type="checkbox" id="countdown_enabled"></div>
+						<input type="number" class="form-control" id="countdown" placeholder="Countdown Time (mins)">
+					</div>
+				</form>
+			</div>	
+			<div id="stats" class="row" style="background-color:#788795;">
+				<h2><strong>Stats<strong></h2>
+				<div class="col-sm-6 text-center">
+					<img src="skull_icon.png" style="width:50%"><h1><span id="total_skulls_amt"></span></h1></img>
+				</div>
+				<div class="col-sm-6 text-center">
+					<img src="rupee_icon.png" style="width:20%"><h1><span id="total_points_amt"></span></h1></img>
+				</div>
+			</div>
+		</div>
+		<div id="right-side" class="col-sm-8" style="background-color:#8998a6;">
+			<h2><strong>Skulls</h2>
+			<div class="panel-group">
+				<div class="panel panel-default" onclick = "done_skull(0);" oncontextmenu="elim_skull(0); return false;" id="panel_1">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-1 text-center">
+								<h1 id="num_skulls_1">0</h1>
+							</div>
+							<div class="col-sm-1 text-center container" id="bonus_icon_1" style="visibility:hidden">
+								<span class="glyphicon glyphicon-ok glyphicon-center" style="font-size: 1.2em"></span>
+							</div>
+							<div class="col-sm-7" id="text_1">
+								
+							</div>
+							<div class="col-sm-2" id="image_1">
+								Image
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default" onclick = "done_skull(1);" oncontextmenu="elim_skull(1); return false;" id="panel_2">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-1 text-center">
+								<h1 id="num_skulls_2">0</h1>
+							</div>
+							<div class="col-sm-1 text-center container" id="bonus_icon_2" style="visibility:hidden">
+								<span class="glyphicon glyphicon-ok glyphicon-center" style="font-size: 1.2em"></span>
+							</div>
+							<div class="col-sm-7" id="text_2">
+								
+							</div>
+							<div class="col-sm-3" id="image_2">
+								Image
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default" onclick = "done_skull(2);" oncontextmenu="elim_skull(2); return false;" id="panel_3">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-1 text-center">
+								<h1 id="num_skulls_3">0</h1>
+							</div>
+							<div class="col-sm-1 text-center container" id="bonus_icon_3" style="visibility:hidden">
+								<span class="glyphicon glyphicon-ok glyphicon-center" style="font-size: 1.2em"></span>
+							</div>
+							<div class="col-sm-7" id="text_3">
+								
+							</div>
+							<div class="col-sm-3" id="image_3">
+								Image
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default" onclick = "done_skull(3);" oncontextmenu="elim_skull(3); return false;" id="panel_4">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-1 text-center">
+								<h1 id="num_skulls_4">0</h1>
+							</div>
+							<div class="col-sm-1 text-center" id="bonus_icon_4" style="visibility:hidden">
+								<span class="glyphicon glyphicon-ok glyphicon-center" style="font-size: 1.2em"></span>
+							</div>
+							<div class="col-sm-7" id="text_4">
+								
+							</div>
+							<div class="col-sm-3" id="image_4">
+								Image
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default" onclick = "done_skull(4);" oncontextmenu="elim_skull(4); return false;" id="panel_5">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-1 text-center">
+								<h1 id="num_skulls_5">0</h1>
+							</div>
+							<div class="col-sm-1 text-center container" id="bonus_icon_5" style="visibility:hidden">
+								<span class="glyphicon glyphicon-ok glyphicon-center" style="font-size: 1.2em"></span>
+							</div>
+							<div class="col-sm-7" id="text_5">
+								
+							</div>
+							<div class="col-sm-3" id="image_5">
+								Image
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="row text-center">
+		(C) Finappie 2017. <3
+	</div>
+</div>
+    
+</body>
+</html>
