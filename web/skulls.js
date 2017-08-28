@@ -98,3 +98,5 @@ var skull_strings = ["(Child/Day or Night) Inside the Deku Tree - in an alcove w
 "(Adult/Night) Zora's River - At night, stand in front of the waterfall that goes to Zora's Domain, and turn around so your back is to the waterfall. You will see a Gold Skulltula on the wall up ahead.",
 "(Adult/Night) Zora's Domain - to the left of the top of the frozen waterfall",
 "(Adult/Night) Zora's Fountain - Make sure it's night. Go over to the entrance to the Great Fairy fountain, where there is a grey stone. You can only lift it if you have the silver gauntlets, so lift it, then hammer the small rock that was below it and drop into the hole. Turn on the Lens of Truth to see some hidden regular skulltulas. Kill them and go up the slope to the top, where the hundredth gold skulltula is waiting!"]
+
+var skull_ranks = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,2,3,3,2,2,2,1,1,1,1,2,1,1,1,3,2,1,3,2,1,1,3,3,3,3,2,3,2,2,2,2,3,2,2,2,2,3,4,4,2,2,2,3,3,3,4,4,2,1,1,1,3,3,3,4,4,2,2,2,2,2,2,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
