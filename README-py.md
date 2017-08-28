@@ -1,4 +1,4 @@
-# Ocarina of Time Skullomizer by finap13 / pseudophpt
+# Ocarina of Time Skullomizer (python prototype) by finap13 / pseudophpt
 ## Usage
 You can run the skullomizer by typing 
 
