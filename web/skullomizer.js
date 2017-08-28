@@ -197,7 +197,7 @@ function start_timer () {
 
 function start_race () {
 	race_started = 1;
-	seed = Number(document.getElementById("seed").value);
+	seed = document.getElementById("seed").value;
 	bonus = Number(document.getElementById("bonus").value);
 	skull_limit = Number(document.getElementById("skulls").value);
 	countdown = Number(document.getElementById("countdown").value);
@@ -214,6 +214,7 @@ function start_race () {
 	hide_all_checkmarks();
 	update_values();
 	start_timer();
+	Math.seedrandom(seed);
 }
 
 
