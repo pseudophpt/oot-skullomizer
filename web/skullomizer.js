@@ -75,6 +75,16 @@ function init_skull_states () {
 	bonus_obtained = [0, 0, 0, 0, 0];
 }
 
+function toggle_rules () {
+	var rules = document.getElementById("rules_text");
+	if (rules.style.display == "none") {
+		rules.style.display = "block";
+	}
+	else {
+		rules.style.display = "none";	
+	}
+}
+
 function done_skull (skull_num) {
 	if (race_started) {
 		if (swap_out) {
