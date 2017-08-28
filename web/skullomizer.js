@@ -76,7 +76,7 @@ function init_skull_states () {
 }
 
 function toggle_rules () {
-	var rules = document.getElementById("rules_text");
+	var rules = document.getElementById("rules-text");
 	if (rules.style.display == "none") {
 		rules.style.display = "block";
 	}
