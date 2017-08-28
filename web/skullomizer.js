@@ -198,6 +198,7 @@ function start_timer () {
 function start_race () {
 	race_started = 1;
 	seed = document.getElementById("seed").value;
+	Math.seedrandom(seed);
 	bonus = Number(document.getElementById("bonus").value);
 	skull_limit = Number(document.getElementById("skulls").value);
 	countdown = Number(document.getElementById("countdown").value);
@@ -214,7 +215,6 @@ function start_race () {
 	hide_all_checkmarks();
 	update_values();
 	start_timer();
-	Math.seedrandom(seed);
 }
 
 
@@ -223,6 +223,7 @@ function update_countdown () {
 	if (current_time <= 0) {
 		window.clearInterval(timer);
 		alert("Countdown complete! You finished with "+total_skulls+" skulltulas and "+total_points+" points in "+countdown+" minutes!");
+		race_started = 0;
 	}
 	else {
 		var countdown_sec = Math.floor(current_time / 1000) % 60;
@@ -240,6 +241,7 @@ function update_race () {
 	document.getElementById("timer").innerHTML = String(countdown_hr) + "h" + String(countdown_min) + "m" + String(countdown_sec) + "s";
 	if (total_skulls >= skull_limit) {
 		window.clearInterval(timer);
+		race_started = 0;
 		alert("Race complete! You finished a race of "+skull_limit+" skulltulas with "+total_points+" points in "+String(countdown_hr) + "h" + String(countdown_min) + "m" + String(countdown_sec) + "s!");
 	}
 }
