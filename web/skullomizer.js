@@ -87,15 +87,6 @@ function toggle_rules () {
 
 function done_skull (skull_num) {
 	if (race_started) {
-		if (swap_out) {
-			used_skulls_map[skull_numbers[skull_num]] = 1;
-			for (var i = 0; i < 5; i++) {
-				skull_numbers[i] = get_skull_number_swap();
-			}
-		}
-		else {
-			skull_numbers[skull_num] = get_skull_number();
-		}
 		amount_obtained[skull_num]++;
 		bonus_obtained[skull_num] = 1;
 		if (bonus_enabled) {
@@ -104,16 +95,11 @@ function done_skull (skull_num) {
 		}
 		total_skulls ++;
 		total_points ++;
-		update_values();
 		if (amount_obtained[skull_num] >= max_panel_skulls) {
 			hide_panel(skull_num);
 		}
-	}
-}
-
-function elim_skull (skull_num) {
-	if (race_started & lock_out) {
-		if (swap_out) {
+		else if (swap_out) {
+			used_skulls_map[skull_numbers[skull_num]] = 1;
 			for (var i = 0; i < 5; i++) {
 				skull_numbers[i] = get_skull_number_swap();
 			}
@@ -122,9 +108,24 @@ function elim_skull (skull_num) {
 			skull_numbers[skull_num] = get_skull_number();
 		}
 		update_values();
+		
+	}
+}
+
+function elim_skull (skull_num) {
+	if (race_started & lock_out) {
 		if (amount_obtained[skull_num] >= max_panel_skulls) {
 			hide_panel(skull_num);
 		}
+		else if (swap_out) {
+			for (var i = 0; i < 5; i++) {
+				skull_numbers[i] = get_skull_number_swap();
+			}
+		}
+		else {
+			skull_numbers[skull_num] = get_skull_number();
+		}
+		update_values();
 	}
 	return false;
 }
